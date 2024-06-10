@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import { useServerInsertedHTML } from 'next/navigation';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from '@my-workspace/theme';
+import CssBaseline from '@mui/material/CssBaseline';
 
 export function StyledComponentsRegistry({
   children,
@@ -18,6 +21,7 @@ export function StyledComponentsRegistry({
 
     // Types are out of date, clearTag is not defined.
     // See: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/65021
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (styledComponentsStyleSheet.instance as any).clearTag();
 
     return <>{styles}</>;
@@ -27,7 +31,11 @@ export function StyledComponentsRegistry({
 
   return (
     <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
-      {children}
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+
+        {children}
+      </ThemeProvider>
     </StyleSheetManager>
   );
 }
