@@ -1,0 +1,9 @@
+{
+  "name": "default-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/default-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["default"],
+  "// targets": "to see all targets run: nx show project default-e2e --web",
+  "targets": {}
+}
