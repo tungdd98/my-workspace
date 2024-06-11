@@ -6,14 +6,25 @@ import Link from 'next/link';
 import { Typography } from '@my-workspace/ui-shared';
 import { styled } from '@mui/material/styles';
 import { MENUS } from '../../constants/header.constants';
+import { usePathname } from 'next/navigation';
 
-const MenuLinkStyled = styled(Typography)(({ theme }) => ({
-  '&:hover': {
-    color: theme.palette.primary.main,
-  },
-}));
+const MenuLinkStyled = styled(Typography)<{ active: boolean }>(
+  ({ theme, active }) => ({
+    transition: 'all 0.2s ease',
+    textTransform: 'uppercase',
+    fontWeight: 700,
+    borderBottom: `2px solid ${
+      active ? theme.palette.primary.main : 'transparent'
+    }`,
+    '&:hover': {
+      color: theme.palette.primary.main,
+    },
+  })
+);
 
 const Header: FC = () => {
+  const pathname = usePathname();
+
   return (
     <Box sx={{ mb: 5 }} component="header">
       <Container>
@@ -21,8 +32,8 @@ const Header: FC = () => {
           {MENUS.map((item) => (
             <Link href={item.href} key={item.label}>
               <MenuLinkStyled
+                active={pathname === item.href}
                 variant="subtitle1"
-                sx={{ textTransform: 'uppercase', fontWeight: 700 }}
               >
                 {item.label}
               </MenuLinkStyled>
