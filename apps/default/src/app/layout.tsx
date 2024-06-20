@@ -1,8 +1,6 @@
-'use client';
-
-import Header from '../components/Header';
-import './global.css';
-import { Container, CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline } from '@mui/material';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '@my-workspace/theme';
 
 export default function RootLayout({
@@ -13,12 +11,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-
-          <Header />
-          <Container component="main">{children}</Container>
-        </ThemeProvider>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
