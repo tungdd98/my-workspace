@@ -1,6 +1,6 @@
 'use client';
 
 import { createTheme } from '@mui/material/styles';
-import { themeOptionsOne } from './theme-one';
+import { getAppTheme } from './theme';
 
-export const theme = createTheme(themeOptionsOne);
+export const theme = createTheme(getAppTheme('light'));
