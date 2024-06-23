@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { TProduct } from '../../../../types/product/product.types';
+import type { Restaurant } from '@prisma/client';
 import { Image, Typography } from '@my-workspace/ui-shared';
 import { HeartIcon, StarOnlyIcon, StarsIcon } from '@my-workspace/icons';
 
 type ProductItemProps = {
-  item: TProduct;
+  item: Restaurant;
 };
 
 const ProductItem: FC<ProductItemProps> = ({ item }) => {
@@ -30,7 +30,7 @@ const ProductItem: FC<ProductItemProps> = ({ item }) => {
         fontWeight={500}
       >
         <StarsIcon />
-        {item.featured.text}
+        {item.featuredText}
       </Typography>
       <div className="flex justify-between items-center gap-2 mb-1">
         <Typography
@@ -44,7 +44,7 @@ const ProductItem: FC<ProductItemProps> = ({ item }) => {
         <div className="flex items-center gap-1">
           <StarOnlyIcon />
           <Typography variant="body2">
-            {item.rating}({item.rating_count})
+            {Number(item.rating)}({Number(item.rating_count)})
           </Typography>
         </div>
       </div>

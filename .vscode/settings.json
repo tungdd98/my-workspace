@@ -28,10 +28,8 @@
   "less.validate": false,
   "scss.validate": false,
   "stylelint.enable": true,
-  "stylelint.validate": [
-    "css",
-    "scss",
-    "typescript",
-    "typescriptreact"
-  ]
+  "stylelint.validate": ["css", "scss", "typescript", "typescriptreact"],
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  }
 }

@@ -1,16 +1,12 @@
-import { z } from 'zod';
 import { protectedProcedure, createTRPCRouter } from '../trpc';
+import { getRestaurants } from '../../db/queries/restaurant';
+import { getCategories } from '../../db/queries/category';
 
 export const commonRouter = createTRPCRouter({
-  hello: protectedProcedure
-    .input(
-      z.object({
-        text: z.string(),
-      })
-    )
-    .query((opts) => {
-      return {
-        greeting: `hello ${opts.input.text}`,
-      };
-    }),
+  getRestaurants: protectedProcedure.query(async () => {
+    return await getRestaurants();
+  }),
+  getCategories: protectedProcedure.query(async () => {
+    return await getCategories();
+  }),
 });

@@ -6,17 +6,15 @@ import {
   TextField,
 } from '@my-workspace/ui-shared';
 import { SearchIcon } from '@my-workspace/icons';
-import { textByStoreCategory } from '../../constants/category/category.constants';
-import { fakeData } from '../../constants/common/common';
 import ProductItem from './_components/ProductItem';
 import { api } from '../../trpc/server';
 
 const HomePage: FC = async () => {
-  const result = await api.common.hello.query({ text: 'my friend' });
+  const restaurants = await api.common.getRestaurants.query();
+  const categories = await api.common.getCategories.query();
 
   return (
     <Container sx={{ p: 4 }} maxWidth="sm">
-      {result.greeting}
       <TextField
         variant="filled"
         size="small"
@@ -31,10 +29,10 @@ const HomePage: FC = async () => {
         }}
       />
       <div className="flex my-4 gap-1 overflow-x-auto no-scrollbar">
-        {Object.entries(textByStoreCategory).map(([key, value]) => (
+        {categories.map((item) => (
           <Chip
-            key={key}
-            label={value}
+            key={item.id}
+            label={item.displayName}
             sx={{
               borderRadius: '6px',
               bgcolor: 'grey.50',
@@ -45,7 +43,7 @@ const HomePage: FC = async () => {
           />
         ))}
       </div>
-      {fakeData.map((item) => (
+      {restaurants.map((item) => (
         <ProductItem key={item.id} item={item} />
       ))}
     </Container>
