@@ -8,3 +8,4 @@ export * from './lib/home';
 export * from './lib/message';
 export * from './lib/calendar';
 export * from './lib/menu';
+export { CloseOutlined } from '@mui/icons-material';
