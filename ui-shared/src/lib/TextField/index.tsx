@@ -16,10 +16,10 @@ const useStylesTextField = (
 
   if (variant === 'filled') {
     return {
-      backgroundColor: '#F9FAFB',
       borderRadius: 2,
       overflow: 'hidden',
       '& .MuiInputBase-root': {
+        backgroundColor: `var(--mui-palette-grey-50)`,
         '&::before, &::after': {
           display: 'none',
         },

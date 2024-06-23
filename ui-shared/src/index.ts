@@ -5,3 +5,4 @@ export * from './lib/TextField';
 export * from './lib/Box';
 export * from './lib/Chip';
 export * from './lib/Image';
+export * from './lib/AppBar';

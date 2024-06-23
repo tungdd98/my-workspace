@@ -12,7 +12,7 @@ export const paletteOptionsLight: PaletteOptions = {
   },
   secondary: {
     main: '#dc004e',
-    dark: '#9a0036',
+    dark: '#FF692E',
     light: '#ff5c8d',
     contrastText: '#fff',
   },
@@ -23,7 +23,7 @@ export const paletteOptionsLight: PaletteOptions = {
     contrastText: '#fff',
   },
   warning: {
-    main: '#ff9800',
+    main: '#FDB022',
     dark: '#ba6c00',
     light: '#ffc947',
     contrastText: 'rgba(0, 0, 0, 0.87)',
@@ -41,17 +41,17 @@ export const paletteOptionsLight: PaletteOptions = {
     contrastText: '#fff',
   },
   grey: {
-    50: '#fafafa',
-    100: '#f5f5f5',
+    50: '#F9FAFB',
+    100: '#475467',
     200: '#eeeeee',
     300: '#e0e0e0',
-    400: '#bdbdbd',
-    500: '#9e9e9e',
+    400: '#98A2B3',
+    500: '#667085',
     600: '#757575',
-    700: '#616161',
+    700: '#344054',
     800: '#424242',
     900: '#212121',
-  }
+  },
 };
 
 export const paletteOptionsDark: PaletteOptions = {
@@ -103,5 +103,5 @@ export const paletteOptionsDark: PaletteOptions = {
     700: '#616161',
     800: '#424242',
     900: '#212121',
-  }
+  },
 };

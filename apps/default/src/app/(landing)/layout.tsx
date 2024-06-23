@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import BottomAppBar from './_components/BottomAppBar';
 
 export const metadata = {
   title: 'Test: Seoul Comix',
@@ -8,7 +9,12 @@ export const metadata = {
 const LandingLayout: FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  return <div>{children}</div>;
+  return (
+    <div className="mb-16">
+      {children}
+      <BottomAppBar />
+    </div>
+  );
 };
 
 export default LandingLayout;

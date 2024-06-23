@@ -1,8 +1,8 @@
-import { TypographyOptions } from "@mui/material/styles/createTypography";
+import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 // Custom typography options
 export const typography: TypographyOptions = {
-  fontFamily: 'Montserrat, Roboto, sans-serif',
+  fontFamily: 'SF Pro Display, Montserrat, Roboto, sans-serif',
   h1: {},
   h2: {},
   h3: {},
@@ -15,5 +15,5 @@ export const typography: TypographyOptions = {
   body2: {},
   button: {},
   caption: {},
-  overline: {}
-}
+  overline: {},
+};

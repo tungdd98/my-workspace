@@ -3,6 +3,9 @@
     "nrwl.angular-console",
     "esbenp.prettier-vscode",
     "ms-playwright.playwright",
-    "firsttris.vscode-jest-runner"
+    "firsttris.vscode-jest-runner",
+    "usernamehw.errorlens",
+    "naumovs.color-highlight",
+    "aaron-bond.better-comments",
   ]
 }

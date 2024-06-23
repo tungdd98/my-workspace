@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import {
-  Box,
   Chip,
   Container,
   InputAdornment,
@@ -13,7 +12,7 @@ import ProductItem from './_components/ProductItem';
 
 const HomePage: FC = () => {
   return (
-    <Container sx={{ p: 4 }}>
+    <Container sx={{ p: 4 }} maxWidth="sm">
       <TextField
         variant="filled"
         size="small"
@@ -27,11 +26,21 @@ const HomePage: FC = () => {
           ),
         }}
       />
-      <Box sx={{ display: 'flex', my: 4, gap: 2, overflowX: 'auto' }}>
+      <div className="flex my-4 gap-1 overflow-x-auto no-scrollbar">
         {Object.entries(textByStoreCategory).map(([key, value]) => (
-          <Chip key={key} label={value} />
+          <Chip
+            key={key}
+            label={value}
+            sx={{
+              borderRadius: '6px',
+              bgcolor: 'grey.50',
+              color: 'grey.700',
+              fontSize: 14,
+              fontWeight: 600,
+            }}
+          />
         ))}
-      </Box>
+      </div>
       {fakeData.map((item) => (
         <ProductItem key={item.id} item={item} />
       ))}
