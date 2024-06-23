@@ -20,6 +20,7 @@
       "jest",
       "node"
     ],
+    "strictNullChecks": true
   },
   "include": [
     "**/*.ts",

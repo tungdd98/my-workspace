@@ -9,10 +9,14 @@ import { SearchIcon } from '@my-workspace/icons';
 import { textByStoreCategory } from '../../constants/category/category.constants';
 import { fakeData } from '../../constants/common/common';
 import ProductItem from './_components/ProductItem';
+import { api } from '../../trpc/server';
 
-const HomePage: FC = () => {
+const HomePage: FC = async () => {
+  const result = await api.common.hello.query({ text: 'my friend' });
+
   return (
     <Container sx={{ p: 4 }} maxWidth="sm">
+      {result.greeting}
       <TextField
         variant="filled"
         size="small"
