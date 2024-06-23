@@ -1,10 +1,10 @@
-import type { Restaurant } from '@prisma/client';
 import { db } from '../index';
+import { TRestaurant } from '../../../types/restaurant/restaurant.types';
 
 export const getRestaurants = async (
   categoryId?: string,
   name?: string
-): Promise<Restaurant[]> => {
+): Promise<TRestaurant[]> => {
   return await db.restaurant.findMany({
     orderBy: [
       {
@@ -18,6 +18,9 @@ export const getRestaurants = async (
       name: {
         contains: name ? `%${name}%` : undefined,
       },
+    },
+    include: {
+      featured: true,
     },
   });
 };

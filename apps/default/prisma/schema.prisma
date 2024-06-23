@@ -33,16 +33,16 @@ model Restaurant {
   id           String   @id @default(cuid())
   rating       Decimal
   rating_count Decimal
-  category     Category @relation(fields: [categoryName], references: [id])
+  category     Category @relation(fields: [categoryId], references: [id])
   city         String   @db.VarChar(255)
   desc         String
   images       String[]
   name         String   @db.VarChar(255)
   price_range  String   @db.VarChar(255)
-  featured     Featured @relation(fields: [featuredText], references: [id])
+  featured     Featured @relation(fields: [featuredId], references: [id])
   isFavorite   Boolean  @default(false)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-  featuredText String
-  categoryName String
+  featuredId   String
+  categoryId   String
 }

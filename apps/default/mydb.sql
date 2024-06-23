@@ -64,8 +64,8 @@ CREATE TABLE public."Restaurant" (
     "isFavorite" boolean DEFAULT false NOT NULL,
     "createdAt" timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     "updatedAt" timestamp(3) without time zone NOT NULL,
-    "featuredText" text NOT NULL,
-    "categoryName" text NOT NULL
+    "featuredId" text NOT NULL,
+    "categoryId" text NOT NULL
 );
 
 
@@ -122,7 +122,7 @@ clxrd62jj000ussul8wbhg7d6	고베 우동 맛집	stars-02
 -- Data for Name: Restaurant; Type: TABLE DATA; Schema: public; Owner: tungdd
 --
 
-COPY public."Restaurant" (id, rating, rating_count, city, "desc", images, name, price_range, "isFavorite", "createdAt", "updatedAt", "featuredText", "categoryName") FROM stdin;
+COPY public."Restaurant" (id, rating, rating_count, city, "desc", images, name, price_range, "isFavorite", "createdAt", "updatedAt", "featuredId", "categoryId") FROM stdin;
 clxrd86nc000vssulynsw7h7q	4.200000000000000000000000000000	139.000000000000000000000000000000	osaka	최고급 오마카세를 합리적인 가격에 무제한 사케와 함께 즐길 수 있는	{https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D,https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D}	카구라자카 이시카와 스시하루 나카노시마 스시야 카구라자카 이시카와 스시하루 나카노시마 스시야	3~5	f	2024-06-23 09:47:46.728	2024-06-23 09:46:25.572	clxrd62jj000lssulib60y59c	clxrcvqqz0000ssul0qtpkn03
 \.
 
@@ -152,19 +152,19 @@ ALTER TABLE ONLY public."Restaurant"
 
 
 --
--- Name: Restaurant Restaurant_categoryName_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tungdd
+-- Name: Restaurant Restaurant_categoryId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tungdd
 --
 
 ALTER TABLE ONLY public."Restaurant"
-    ADD CONSTRAINT "Restaurant_categoryName_fkey" FOREIGN KEY ("categoryName") REFERENCES public."Category"(id) ON UPDATE CASCADE ON DELETE RESTRICT;
+    ADD CONSTRAINT "Restaurant_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES public."Category"(id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
--- Name: Restaurant Restaurant_featuredText_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tungdd
+-- Name: Restaurant Restaurant_featuredId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: tungdd
 --
 
 ALTER TABLE ONLY public."Restaurant"
-    ADD CONSTRAINT "Restaurant_featuredText_fkey" FOREIGN KEY ("featuredText") REFERENCES public."Featured"(id) ON UPDATE CASCADE ON DELETE RESTRICT;
+    ADD CONSTRAINT "Restaurant_featuredId_fkey" FOREIGN KEY ("featuredId") REFERENCES public."Featured"(id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --

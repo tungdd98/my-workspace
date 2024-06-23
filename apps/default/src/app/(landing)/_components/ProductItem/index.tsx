@@ -1,18 +1,37 @@
-import React, { FC } from 'react';
-import type { Restaurant } from '@prisma/client';
+'use client';
+
+import React, { FC, useMemo } from 'react';
 import { Image, Typography } from '@my-workspace/ui-shared';
 import { HeartIcon, StarOnlyIcon, StarsIcon } from '@my-workspace/icons';
+import { TRestaurant } from '../../../../types/restaurant/restaurant.types';
+import { FeatureIcon } from '../../../../types/restaurant/restaurant.enums';
 
 type ProductItemProps = {
-  item: Restaurant;
+  item: TRestaurant;
 };
 
 const ProductItem: FC<ProductItemProps> = ({ item }) => {
+  const featuredIcon = useMemo(() => {
+    if (item.featured.icon === FeatureIcon.STARS_02) {
+      return <StarsIcon />;
+    }
+
+    return <StarsIcon />;
+  }, [item.featured.icon]);
+
+  const imageUrl = useMemo(() => {
+    if (!item.images.length) {
+      return './images/no-image.png';
+    }
+
+    return item.images[0];
+  }, [item.images]);
+
   return (
     <div className="mb-4">
       <div className="relative mb-3">
         <Image
-          src={item.images[0]}
+          src={imageUrl}
           width={358}
           height={200}
           loading="lazy"
@@ -29,8 +48,8 @@ const ProductItem: FC<ProductItemProps> = ({ item }) => {
         className="flex gap-1 items-center mb-1"
         fontWeight={500}
       >
-        <StarsIcon />
-        {item.featuredText}
+        {featuredIcon}
+        {item.featured.text}
       </Typography>
       <div className="flex justify-between items-center gap-2 mb-1">
         <Typography
