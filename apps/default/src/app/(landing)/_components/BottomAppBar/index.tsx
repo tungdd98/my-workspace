@@ -26,7 +26,7 @@ const BottomAppBar: FC = () => {
           <HomeIcon className="w-6 h-6" />
           <span className="text-[10px]">홈</span>
         </IconButton>
-        <IconButton color="secondary" className="flex flex-col gap-1">
+        <IconButton color="error" className="flex flex-col gap-1">
           <SearchIcon className="w-6 h-6" />
           <span className="text-[10px]">검색</span>
         </IconButton>

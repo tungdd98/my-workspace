@@ -11,9 +11,9 @@ export const paletteOptionsLight: PaletteOptions = {
     contrastText: '#fff',
   },
   secondary: {
-    main: '#dc004e',
+    main: '#ff8556',
     dark: '#FF692E',
-    light: '#ff5c8d',
+    light: '#ffa787',
     contrastText: '#fff',
   },
   info: {
@@ -23,9 +23,9 @@ export const paletteOptionsLight: PaletteOptions = {
     contrastText: '#fff',
   },
   warning: {
-    main: '#FDB022',
+    main: '#cfa02e',
     dark: '#ba6c00',
-    light: '#ffc947',
+    light: '#e0c681',
     contrastText: 'rgba(0, 0, 0, 0.87)',
   },
   success: {
@@ -35,9 +35,9 @@ export const paletteOptionsLight: PaletteOptions = {
     contrastText: 'rgba(0, 0, 0, 0.87)',
   },
   error: {
-    main: red[500],
-    dark: red[700],
-    light: red[300],
+    main: '#FF4405',
+    dark: '#e33300',
+    light: '#ff855c',
     contrastText: '#fff',
   },
   grey: {
