@@ -52,7 +52,7 @@ const FormSearch: FC = () => {
                   <SearchIcon />
                 </InputAdornment>
               ),
-              endAdornment: (
+              endAdornment: !!form.getValues().search && (
                 <InputAdornment position="end">
                   <IconButton size="small" onClick={clearForm}>
                     <CloseOutlined />

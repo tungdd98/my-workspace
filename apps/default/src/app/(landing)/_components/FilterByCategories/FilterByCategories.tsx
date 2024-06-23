@@ -16,6 +16,16 @@ const FilterByCategories: FC<FilterByCategoriesProps> = ({ categories }) => {
   const searchParams = useSearchParams();
   const categoryId = searchParams.get('category');
 
+  const handleFilterByCategory = (item: Category) => {
+    router.push(
+      `${pathname}?${createQueryString(
+        'category',
+        item.id === categoryId ? '' : item.id,
+        searchParams
+      )}`
+    );
+  };
+
   return (
     <div className="flex my-4 gap-1 overflow-x-auto no-scrollbar">
       {categories.map((item) => (
@@ -29,15 +39,7 @@ const FilterByCategories: FC<FilterByCategoriesProps> = ({ categories }) => {
             fontSize: 14,
             fontWeight: 600,
           }}
-          onClick={() => {
-            router.push(
-              `${pathname}?${createQueryString(
-                'category',
-                item.id,
-                searchParams
-              )}`
-            );
-          }}
+          onClick={() => handleFilterByCategory(item)}
         />
       ))}
     </div>
