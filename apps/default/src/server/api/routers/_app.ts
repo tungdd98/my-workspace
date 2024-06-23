@@ -1,7 +1,10 @@
-import { protectedProcedure, createTRPCRouter } from '../trpc';
-import { getRestaurants } from '../../db/queries/restaurant';
-import { getCategories } from '../../db/queries/category';
 import { z } from 'zod';
+import { createTRPCRouter, protectedProcedure } from '../trpc';
+import {
+  getRestaurants,
+  updateFavoriteRestaurant,
+} from '../../db/queries/restaurant';
+import { getCategories } from '../../db/queries/category';
 
 export const commonRouter = createTRPCRouter({
   getRestaurants: protectedProcedure
@@ -17,4 +20,13 @@ export const commonRouter = createTRPCRouter({
   getCategories: protectedProcedure.query(async () => {
     return await getCategories();
   }),
+  updateFavoriteRestaurant: protectedProcedure
+    .input(
+      z.object({
+        isFavorite: z.boolean(),
+      })
+    )
+    .query(async (opts) => {
+      return await updateFavoriteRestaurant(opts.input.isFavorite);
+    }),
 });

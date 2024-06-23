@@ -6,7 +6,7 @@ import { IconButton, InputAdornment, TextField } from '@my-workspace/ui-shared';
 import { z } from 'zod';
 import { useForm, Controller } from 'react-hook-form';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { createQueryString } from '../../../../utils/create-query-string';
+import { createQueryString } from '@apps/default/utils/create-query-string';
 
 const FormSchema = z.object({
   search: z.string(),
@@ -41,6 +41,7 @@ const FormSearch: FC = () => {
         render={({ field }) => (
           <TextField
             {...field}
+            ref={null}
             variant="filled"
             size="small"
             placeholder="맛집 이름을 검색해보세요"

@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import type { Category } from '@prisma/client';
 import { Chip } from '@my-workspace/ui-shared';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { createQueryString } from '../../../../utils/create-query-string';
+import { createQueryString } from '@apps/default/utils/create-query-string';
 
 type FilterByCategoriesProps = {
   categories: Category[];

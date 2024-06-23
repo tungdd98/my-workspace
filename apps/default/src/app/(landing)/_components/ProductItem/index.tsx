@@ -1,10 +1,9 @@
-'use client';
-
 import React, { FC, useMemo } from 'react';
 import { Image, Typography } from '@my-workspace/ui-shared';
 import { HeartIcon, StarOnlyIcon, StarsIcon } from '@my-workspace/icons';
-import { TRestaurant } from '../../../../types/restaurant/restaurant.types';
-import { FeatureIcon } from '../../../../types/restaurant/restaurant.enums';
+import { TRestaurant } from '@apps/default/types/restaurant/restaurant.types';
+import { FeatureIcon } from '@apps/default/types/restaurant/restaurant.enums';
+import { cn } from '@apps/default/utils/merge-class';
 
 type ProductItemProps = {
   item: TRestaurant;
@@ -38,7 +37,11 @@ const ProductItem: FC<ProductItemProps> = ({ item }) => {
           alt={item.name}
           className="aspect-video rounded-2xl object-cover w-full h-auto"
         />
-        <div className="absolute w-9 h-9 rounded-full bg-white/25 top-2 right-2 flex justify-center items-center backdrop-blur cursor-pointer">
+        <div
+          className={cn(
+            'absolute w-9 h-9 rounded-full top-2 right-2 flex justify-center items-center backdrop-blur cursor-pointer bg-white/25'
+          )}
+        >
           <HeartIcon />
         </div>
       </div>

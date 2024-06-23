@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { TRPCReactProvider } from '../trpc/Provider';
 import './global.css';
+import { TRPCReactProvider } from '../trpc/Provider';
 
 const RootLayout: FC<{
   children: React.ReactNode;

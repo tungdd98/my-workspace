@@ -24,3 +24,14 @@ export const getRestaurants = async (
     },
   });
 };
+
+export const updateFavoriteRestaurant = async (isFavorite: boolean) => {
+  return await db.restaurant.update({
+    where: {
+      id: 'viola@prisma.io',
+    },
+    data: {
+      isFavorite,
+    },
+  });
+};

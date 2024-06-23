@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Container, Typography } from '@my-workspace/ui-shared';
 import ProductItem from './_components/ProductItem';
-import { api } from '../../trpc/server';
 import FilterByCategories from './_components/FilterByCategories/FilterByCategories';
 import FormSearch from './_components/FormSearch/FormSearch';
+import { api } from '@apps/default/trpc/server';
 
 type HomePageProps = {
   searchParams: {
