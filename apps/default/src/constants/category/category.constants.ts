@@ -1,4 +1,4 @@
-import { STORE_CATEGORY } from '../../types/category/category.enums';
+import { STORE_CATEGORY } from '@apps/default/types/category/category.enums';
 
 export const textByStoreCategory: Record<STORE_CATEGORY, string> = {
   [STORE_CATEGORY.SUSHI]: '스시·해산물',

@@ -1,6 +1,4 @@
-import { TProduct } from '../../types/product/product.types';
-
-export const fakeData: TProduct[] = [
+export const fakeData = [
   {
     rating: 4.2,
     rating_count: 139,
