@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import type { Category } from '@prisma/client';
 import { Chip } from '@my-workspace/ui-shared';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -16,15 +16,18 @@ const FilterByCategories: FC<FilterByCategoriesProps> = ({ categories }) => {
   const searchParams = useSearchParams();
   const categoryId = searchParams.get('category');
 
-  const handleFilterByCategory = (item: Category) => {
-    router.push(
-      `${pathname}?${createQueryString(
-        'category',
-        item.id === categoryId ? '' : item.id,
-        searchParams
-      )}`
-    );
-  };
+  const handleFilterByCategory = useCallback(
+    (item: Category) => {
+      router.push(
+        `${pathname}?${createQueryString(
+          'category',
+          item.id === categoryId ? '' : item.id,
+          searchParams
+        )}`
+      );
+    },
+    [categoryId, pathname, router, searchParams]
+  );
 
   return (
     <div className="flex my-4 gap-1 overflow-x-auto no-scrollbar">

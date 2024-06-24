@@ -1,39 +1,36 @@
 'use client';
 
+import React, { ReactNode, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client';
-import { createTRPCReact } from '@trpc/react-query';
-import { useState } from 'react';
+import { httpBatchLink } from '@trpc/client';
+import superjson from 'superjson';
+import { getUrl } from './shared';
+import { trpc } from './client/client';
 
-import { type AppRouter } from '../server/api/root';
-import { getUrl, transformer } from './shared';
-
-const api = createTRPCReact<AppRouter>();
-
-export function TRPCReactProvider(props: { children: React.ReactNode }) {
-  const [queryClient] = useState(() => new QueryClient());
-
-  const [trpcClient] = useState(() =>
-    api.createClient({
-      transformer,
-      links: [
-        loggerLink({
-          enabled: (op) =>
-            process.env.NODE_ENV === 'development' ||
-            (op.direction === 'down' && op.result instanceof Error),
-        }),
-        unstable_httpBatchStreamLink({
-          url: getUrl(),
-        }),
-      ],
-    })
+export const Provider = ({ children }: { children: ReactNode }) => {
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false,
+          },
+        },
+      })
   );
+
+  const trpcClient = trpc.createClient({
+    transformer: superjson,
+    links: [
+      httpBatchLink({
+        url: getUrl(),
+      }),
+    ],
+  });
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <api.Provider client={trpcClient} queryClient={queryClient}>
-        {props.children}
-      </api.Provider>
-    </QueryClientProvider>
+    <trpc.Provider client={trpcClient} queryClient={queryClient}>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </trpc.Provider>
   );
-}
+};

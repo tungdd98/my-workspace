@@ -1,5 +1,5 @@
+import { TRestaurant } from '@apps/default/types/restaurant/restaurant.types';
 import { db } from '../index';
-import { TRestaurant } from '../../../types/restaurant/restaurant.types';
 
 export const getRestaurants = async (
   categoryId?: string,
@@ -21,17 +21,6 @@ export const getRestaurants = async (
     },
     include: {
       featured: true,
-    },
-  });
-};
-
-export const updateFavoriteRestaurant = async (isFavorite: boolean) => {
-  return await db.restaurant.update({
-    where: {
-      id: 'viola@prisma.io',
-    },
-    data: {
-      isFavorite,
     },
   });
 };

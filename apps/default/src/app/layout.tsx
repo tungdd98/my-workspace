@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './global.css';
-import { TRPCReactProvider } from '../trpc/Provider';
+import { Provider } from '../trpc/Provider';
 
 const RootLayout: FC<{
   children: React.ReactNode;
@@ -8,7 +8,7 @@ const RootLayout: FC<{
   return (
     <html lang="en">
       <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

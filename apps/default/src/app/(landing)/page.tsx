@@ -3,7 +3,7 @@ import { Container, Typography } from '@my-workspace/ui-shared';
 import ProductItem from './_components/ProductItem';
 import FilterByCategories from './_components/FilterByCategories/FilterByCategories';
 import FormSearch from './_components/FormSearch/FormSearch';
-import { api } from '@apps/default/trpc/server';
+import { serverClient } from '@apps/default/trpc/client/server-client';
 
 type HomePageProps = {
   searchParams: {
@@ -13,11 +13,11 @@ type HomePageProps = {
 };
 
 const HomePage: FC<HomePageProps> = async ({ searchParams }) => {
-  const restaurants = await api.common.getRestaurants.query({
+  const restaurants = await serverClient.getRestaurants({
     category: searchParams.category,
     name: searchParams.name,
   });
-  const categories = await api.common.getCategories.query();
+  const categories = await serverClient.getCategories();
 
   return (
     <Container sx={{ p: 4 }} maxWidth="sm">
