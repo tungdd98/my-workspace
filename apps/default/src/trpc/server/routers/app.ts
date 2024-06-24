@@ -1,6 +1,8 @@
-import { updateFavoriteRestaurant } from '@apps/default/db/actions/restaurant';
-import { getCategories } from '@apps/default/db/queries/category';
-import { getRestaurants } from '@apps/default/db/queries/restaurant';
+import {
+  getCategories,
+  getRestaurants,
+  updateFavoriteRestaurant,
+} from '@my-workspace/db';
 import { publicProcedure, router } from '../index';
 import { z } from 'zod';
 

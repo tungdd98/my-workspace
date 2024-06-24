@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@apps/default/*": ["apps/default/src/*"],
+      "@my-workspace/db": ["db/src/index.ts"],
       "@my-workspace/icons": ["icons/src/index.ts"],
       "@my-workspace/icons/server": ["icons/src/server.ts"],
       "@my-workspace/theme": ["theme/src/index.ts"],

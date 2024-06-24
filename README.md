@@ -44,9 +44,17 @@ npm install
 - Node >= 18.0.0
 - Postgres
 
+## Setting up the environment variables
+
+Navigate into your db directory and get your environment variables ready:
+
+```
+npm generate
+```
+
 ## Start the application
 
-Run `npx nx dev default` to start the development server. Happy coding!
+Run `npx nx dev default` to start the development server.
 
 ## Build for production
 
