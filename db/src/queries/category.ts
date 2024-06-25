@@ -1,4 +1,4 @@
-import type { Category } from '@prisma/client';
+import { Category } from '@prisma/client';
 import { db } from '../index';
 
 export const getCategories = async (): Promise<Category[]> => {

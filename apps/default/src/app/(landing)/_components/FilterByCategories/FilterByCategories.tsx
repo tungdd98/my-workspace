@@ -1,7 +1,7 @@
 'use client';
 
 import React, { FC, useCallback } from 'react';
-import type { Category } from '@prisma/client';
+import { Category } from '@prisma/client';
 import { Chip } from '@my-workspace/ui-shared';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { createQueryString } from '@apps/default/utils/create-query-string';
